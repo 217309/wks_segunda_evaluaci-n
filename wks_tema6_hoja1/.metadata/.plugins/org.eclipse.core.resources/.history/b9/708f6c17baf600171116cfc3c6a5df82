@@ -1,0 +1,58 @@
+
+public class Indicador {
+
+	// el maximo y el minimo van a ser iguales para todos los bidones de gasolina 
+	// Los atributos se van a declarar privados por lo general. 
+	private final int maximo;
+	private final int minimo;
+	private int valorActual;
+
+	
+	// El constructor y la clase tienen que llamarse igual
+	Indicador(int maximo, int minimo, int valorActual){
+		this.maximo=maximo=100;
+		this.minimo=minimo=0;
+		this.valorActual=valorActual;
+		
+	}
+
+	
+// Tenemos que fijar en el set los valores maximos y minimos para que el usuario no los pueda manipular
+	
+	// Asignación del ValorActual
+	public void setValorActual(int valorActual) {
+
+	}
+
+	public int getMaximo() {
+		return maximo;
+	}
+
+	public int getMinimo() {
+		return minimo;
+	}
+
+	// ¿Se podría incluir este if dentro del SetValorActual y hacer la clase main hacer referencia al Set? 
+	
+	
+	public void echar_gasolina (int cantidad, int valorActual){
+	
+	if(valorActual + cantidad > maximo){
+		valorActual = maximo;	
+	}
+	else if (valorActual - cantidad< minimo) {
+
+		valorActual = minimo;
+	}
+	else{
+		this.valorActual = valorActual;
+	}
+
+
+	}// echar_gasolina
+	
+
+	
+	
+	
+}// class

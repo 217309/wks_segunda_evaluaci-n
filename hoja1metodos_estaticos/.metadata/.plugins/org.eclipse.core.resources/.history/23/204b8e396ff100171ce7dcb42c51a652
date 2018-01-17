@@ -1,0 +1,70 @@
+
+import java.util.Scanner;
+
+
+public class Ejercicio4Primos {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int N;
+		Scanner teclado = new Scanner(System.in);
+		int contadorPrimos;
+		int contadorNoPrimos;
+		int K;
+		
+		N = Estaticos.pideNumeroPositivo("Introduce numero positivo");
+		contadorPrimos=0;
+		contadorNoPrimos=0;
+		
+		
+		
+		
+			if(Estaticos.esPrimo(N)){
+				contadorPrimos++;
+			}
+			else{
+				
+				contadorNoPrimos++;
+			}
+
+		System.out.println(N + " tiene por debajo estos numeros primos " + contadorPrimos++);
+	
+		boolean esPrimo(int num){
+			
+			if(cuentaDivisores(num) <= 2){//el numero es primo // ponemos <= porque el 1 es primo y solo tiene un divisor. 
+				return true;
+			}else{
+				return false;
+			}
+		}//esPrimo
+	
+	
+	}//MAIN
+
+}// CLASS
+
+
+
+Variables
+num, divisor, contaDivisores, posiblePrimo: numÈricas enteras 
+
+Inicio
+	Visualizar "øNumero mayor que cero?"
+	Introducir num
+	MQ num < 0
+		Visualizar "øNumero mayor que cero?"
+		Introducir num
+	FMQ
+	Para posiblePrimo = 1 hasta n
+		contaDivisores=0
+		Para divisor = 2 hasta posiblePrimo - 1
+			Si posiblePrimo MOD divisor = 0
+				contaDivisores = contaDivisores + 1
+			finsi
+		finpara
+		Si contaDivisores = 0 // hemos encontrado un numero primo
+			Visualizar posiblePrimo
+		finsi
+	finpara
+Fin

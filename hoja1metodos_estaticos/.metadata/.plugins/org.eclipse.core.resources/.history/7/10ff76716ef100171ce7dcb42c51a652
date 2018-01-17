@@ -1,0 +1,37 @@
+
+import java.util.Scanner;
+
+
+public class Ejercicio4Primos {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int N;
+		Scanner teclado = new Scanner(System.in);
+		int contadorPrimos;
+		int contadorNoPrimos;
+		int K;
+		
+		N = Estaticos.pideNumeroPositivo("Introduce numero positivo");
+		contadorPrimos=0;
+		contadorNoPrimos=0;
+		
+		
+		
+		
+			if(Estaticos.esPrimo(N)){
+				contadorPrimos++;
+			}
+			else{
+				
+				contadorNoPrimos++;
+			}
+			
+			
+		
+		
+		System.out.println(N + " tiene por debajo estos numeros primos " + contadorPrimos++);
+	}//MAIN
+
+}// CLASS

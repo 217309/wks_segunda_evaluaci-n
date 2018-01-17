@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class IndicadorTest {
+
+
+	public static void main (String []args){
+		Scanner teclado=new Scanner(System.in);
+		Indicador I []=new Indicador[5];
+		System.out.println("Introduce los datos de los indicadores");
+		System.out.println("1:Combustible");
+		System.out.println("2:Aceite");
+		System.out.println("3:Temperatura");
+		System.out.println("4:velocidad");
+		System.out.println("5:Revoluciones");
+		String [] S=new String [5]; 
+		S[0]="Combustible";
+		S[1]="Aceite";
+		S[2]="Temperatura";
+		S[3]="Velocidad";
+		S[4]="Revoluciones";
+
+		for(int i=0;i<=4;i++){
+			System.out.println("Indicador : "+S[i]);
+
+
+			System.out.print("Unidades");
+			String uni=teclado.next();
+			System.out.print("Nivel maximo");
+			double max=teclado.nextDouble();
+			System.out.print("Nivel minimo");
+			double min=teclado.nextDouble();
+			double va=min;
+			Indicador J=new Indicador(max,min,uni,S[i]);
+			J.setValorActual(va);
+			I[i]=J;
+		}
+		mostrar(I);    
+	} // main   
+
+	public static void mostrar(Indicador [] I){
+		System.out.println("=============RESUMEN===================");
+		for(int i=0;i<=4;i++){
+			System.out.println("Nombre : "+I[i].getNombre());
+			System.out.println("Unidades : "+I[i].getUnidades());
+			System.out.println("Ninel maximo : "+I[i].getMaximo());
+			System.out.println("Ninel minimo : "+I[i].getMinimo());
+			I[i].mostrarVA();
+			if(I[i].getactual()==I[i].getMinimo()){
+				System.out.print("Repostar. Nivel Critico");}
+		}
+
+	}
+
+}// clase

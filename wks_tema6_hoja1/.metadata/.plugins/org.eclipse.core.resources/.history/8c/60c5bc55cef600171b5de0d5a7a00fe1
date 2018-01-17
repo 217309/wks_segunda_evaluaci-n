@@ -1,0 +1,93 @@
+import java.util.Scanner;
+public class Indicador {
+
+	// Los atributos se van a declarar privados por lo general. 
+	private double maximo;
+	private double minimo;
+	private double valorActual;
+	private String unidades;
+	private String nombre;
+
+	
+	// El constructor y la clase tienen que llamarse igual
+	Indicador(double max, double min, String uni,String nom){
+		this.maximo=max;
+		this.minimo=min;
+		this.unidades=uni;
+		this.nombre=nom;
+		
+	}
+
+	
+// Tenemos que fijar en el set los valores maximos y minimos para que el usuario no los pueda manipular
+	
+	// Asignación del ValorActual
+	
+	
+	
+	public void setNombre(String nom){
+	    this.nombre=nom;
+	   }
+	
+	public String getNombre(){
+		return this.nombre;
+	   }
+	
+	public String getUnidades(){
+		return this.unidades;
+	   }
+	
+	
+	public void setValorActual(double VA) {
+	    this.valorActual=VA;
+
+	}
+
+	public double getMaximo() {
+		return this.maximo;
+	}
+
+	public double getMinimo() {
+		return this.minimo;
+	}
+	public double getactual(){
+	     return this.valorActual;}
+
+	// ¿Se podría incluir este if dentro del SetValorActual y hacer la clase main hacer referencia al Set? 
+	
+	public void mostrarVA(){
+	     System.out.println("El valor actual es : "+ this.getactual());}
+	 
+	public void incrementar(double g){
+	    if(g+this.getactual()>getMaximo()){
+	        this.setValorActual(getMaximo()); 
+	          }
+	       else{
+	           this.setValorActual(g+this.getactual()); 
+	          }
+	       } 
+	       
+	   
+	public void decrementar(double d){
+	    if(this.getactual()-d<getMinimo()){
+	        this.setValorActual(getMinimo()); 
+	          }
+	       else{
+	           this.setValorActual(this.getactual()-d); 
+	          }
+	       }  
+	       
+
+	  
+	       
+
+
+
+	}
+	
+
+	
+	
+	 
+
+

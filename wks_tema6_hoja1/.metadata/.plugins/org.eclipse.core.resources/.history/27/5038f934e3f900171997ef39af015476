@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+public class IndicadorTest {
+
+
+	public static void main (String []args){
+		Scanner teclado=new Scanner(System.in);
+		int indice;
+		String nombreIndicador="";
+		
+		
+		// 1º Creamos la varibale indicadores que guarda la direccion de un objeto de clase Arrays. 
+		
+		Indicador indicadores []=new Indicador[5];
+		
+		System.out.println("Introduce los datos de los indicadores");
+		System.out.println("1:Combustible");
+		System.out.println("2:Aceite");
+		System.out.println("3:Temperatura");
+		System.out.println("4:velocidad");
+		System.out.println("5:Revoluciones");
+		
+		//2º Vamos a llenar el array con las direcciones de objetos de clase Indicador
+		
+		for(indice = 0; indice < indicadores.length; indice++){
+		
+		//3º Vamos asignando a cada objeto string cada uno de los nombres de Indicador contenidos en el metodo 
+		//nombreIndicador
+			nombreIndicador = nombreIndicador(indice); 
+			indicadores[indice] = new indicadores(nombre, darCapacidad(indice));
+		}
+	
+		String S [] =new String [5]; 
+		
+
+		S[0]="Combustible";
+		S[1]="Aceite";
+		S[2]="Temperatura";
+		S[3]="Velocidad";
+		S[4]="Revoluciones";
+
+	
+		// 2º Hay que rellenar el array new Indicador [5] que esta vacío, con direcciones de objetos de clase Indicador
+		for(int i=0;i<=4;i++){
+			System.out.println("Indicador : "+S[i]);
+
+
+			System.out.print("Unidades");
+			String uni=teclado.next();
+			System.out.print("Nivel maximo");
+			double max=teclado.nextDouble();
+			System.out.print("Nivel minimo");
+			double min=teclado.nextDouble();
+			double va=min;
+			Indicador J=new Indicador(max,min,uni,S[i]);
+			J.setValorActual(va);
+			indicadores[i]=J;
+		}
+		mostrar(indicadores);    
+	} // main   
+
+	public static void mostrar(Indicador [] indicadores){
+		System.out.println("=============RESUMEN===================");
+		for(int i=0;i<=4;i++){
+			System.out.println("Nombre : "+indicadores[i].getNombre());
+			System.out.println("Unidades : "+indicadores[i].getUnidades());
+			System.out.println("Ninel maximo : "+indicadores[i].getMaximo());
+			System.out.println("Ninel minimo : "+indicadores[i].getMinimo());
+			indicadores[i].mostrarValorActual();
+			if(indicadores[i].getValorActual()==indicadores[i].getMinimo()){
+				System.out.print("Repostar. Nivel Critico");}
+		}
+
+	}
+	
+	public static String nombreIndicador(int posicion){
+		String nombres[] = {"Combustible", "Aceite", "Temperatura", "Velocidad", "Revoluciones"};		
+		return nombres[posicion];
+	}
+	
+
+}// clase

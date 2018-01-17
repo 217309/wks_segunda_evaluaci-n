@@ -1,0 +1,96 @@
+import java.util.Scanner;
+
+public class IndicadorTest {
+
+
+	public static void main (String []args){
+		Scanner teclado=new Scanner(System.in);
+		double max;
+		String uni;
+		double min;
+		double valorActual;
+		valorActual=0;
+		double sumarCantidad;
+		double restarCantidad;
+		
+		
+		// 1º Creamos la varibale indicadores que guarda la direccion de un objeto de clase Arrays. 
+		
+		Indicador indicadores []=new Indicador[5];
+		
+		System.out.println("Introduce los datos de los indicadores");
+		System.out.println("1:Combustible");
+		System.out.println("2:Aceite");
+		System.out.println("3:Temperatura");
+		System.out.println("4:velocidad");
+		System.out.println("5:Revoluciones");
+		
+		// 2º Hay que rellenar el array new Indicador [5] que esta vacío, con direcciones de objetos de clase Indicador
+		
+		String S [] = {"Combustible", "Aceite", "Temperatura", "Velocidad", "Revoluciones"}; 
+		
+		/*
+		 String S [] = new String [5];
+		S[0]="Combustible";
+		S[1]="Aceite";
+		S[2]="Temperatura";
+		S[3]="Velocidad";
+		S[4]="Revoluciones";
+		*/
+		
+		for(int i=0;i<=4;i++){
+			System.out.println("/////////////////////");
+			System.out.println("Indicador >>>> "+S[i]);
+
+			System.out.print("Unidades");
+			uni=teclado.next();
+			System.out.print("Nivel maximo");
+			max=teclado.nextDouble();
+			System.out.print("Nivel minimo");
+			min=teclado.nextDouble();
+			
+			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			Indicador Indicador1=new Indicador(max,min,uni,S[i]); // se crea un indicador
+			
+			//indicadores.incrementar(sumarCantidad); // si lo pongo así estaría actuando sobre el array en conjunto que no tiene metodos.
+			System.out.print("Añadir");
+			sumarCantidad=teclado.nextDouble();
+			indicadores[i].incrementar(sumarCantidad);//En cambio queremos actuar sobre cada una de las posiciones del array que contienen direcciones de objeto de la clase indicador.
+			
+			
+			
+			System.out.print("Quitar");
+			restarCantidad=teclado.nextDouble();
+			indicadores[i].disminuir(restarCantidad);//Vamos a pasar a cada una de las posiciones del array una dirección de objeto 
+			
+			
+			Indicador1.setValorActual(valorActual);
+			indicadores[i]=Indicador1;
+		}
+		mostrar(indicadores); 
+	} // main   
+
+	private static int nextInt() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static void mostrar(Indicador [] indicadores){
+		System.out.println("=============RESUMEN===================");
+		for(int i=0;i<=4;i++){
+			System.out.println("Nombre : "+indicadores[i].getNombre());
+			System.out.println("Unidades : "+indicadores[i].getUnidades());
+			System.out.println("Ninel maximo : "+indicadores[i].getMaximo());
+			System.out.println("Ninel minimo : "+indicadores[i].getMinimo());
+			indicadores[i].mostrarValorActual();
+			if(indicadores[i].getValorActual()==indicadores[i].getMinimo()){
+				System.out.print("Repostar. Nivel Critico");}
+		}
+
+	}
+	
+
+	
+	
+	
+}// clase
